@@ -48,7 +48,6 @@ class MyData {
     func searchProtein(text: String) {
         
         if !filteredArr.isEmpty {
-            print(filteredArr)
             filteredArr.removeAll()
         }
         

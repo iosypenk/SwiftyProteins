@@ -23,9 +23,9 @@ class ProteinListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         searchBar.delegate = self
         data.getProteinsArr()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        resignFirstResponder()
+   
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
     }
     
     // Mark: -Rows
@@ -49,11 +49,14 @@ class ProteinListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     // Mark: -Segue for selected row
-    
+
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         
        let name = !data.filteredArr.isEmpty ? data.filteredArr[indexPath.row] : data.proteinsArr[indexPath.row]
-        
+        callSegue(name)
+    }
+    
+    fileprivate func callSegue(_ name: String) {
         data.downloadProtein(name: name, completionHandler: { (response) in
             DispatchQueue.main.async {
                 if let data = response {
@@ -73,16 +76,30 @@ class ProteinListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        
+        guard let name = searchBar.text else { return }
+        if data.proteinsArr.contains(name) {
+            callSegue(name)
+        } else {
+            self.showAlert(error: "Error", message: "No such name")
+        }
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         guard let toSearch = searchBar.text else { return }
         data.searchProtein(text: toSearch)
         proteinsList.reloadData()
     }
     
-  
+    //Mark: -Alert
     
+    fileprivate func showAlert(error: String, message: String) {
+        let alertController = UIAlertController(title: error, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default , handler: nil)
+        
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
     
 }

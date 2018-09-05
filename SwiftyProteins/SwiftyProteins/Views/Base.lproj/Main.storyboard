@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8G-Y2-r3k">
-                                <rect key="frame" x="37.5" y="265.5" width="300" height="200"/>
+                                <rect key="frame" x="38" y="266" width="300" height="200"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter login" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0WK-Yd-9B8">
                                         <rect key="frame" x="8" y="28" width="284" height="30"/>
@@ -62,6 +62,16 @@
                                             <segue destination="jrN-iV-1dz" kind="show" id="MTF-wp-GhP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5I-bU-WL8">
+                                        <rect key="frame" x="121" y="123" width="57" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="57" id="wil-ir-7ie"/>
+                                        </constraints>
+                                        <state key="normal" title="TouchID"/>
+                                        <connections>
+                                            <action selector="idAuth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3vv-Lm-n0n"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
@@ -72,32 +82,93 @@
                                     <constraint firstItem="izd-jX-Fbf" firstAttribute="leading" secondItem="D8G-Y2-r3k" secondAttribute="leading" constant="8" id="Fd9-Hn-UaD"/>
                                     <constraint firstAttribute="trailing" secondItem="0WK-Yd-9B8" secondAttribute="trailing" constant="8" id="I4X-m2-LCW"/>
                                     <constraint firstAttribute="trailing" secondItem="oKa-fi-QYq" secondAttribute="trailing" constant="8" id="RSV-3A-G4y"/>
+                                    <constraint firstItem="V5I-bU-WL8" firstAttribute="centerX" secondItem="D8G-Y2-r3k" secondAttribute="centerX" id="T6S-cv-yMy"/>
                                     <constraint firstItem="0WK-Yd-9B8" firstAttribute="top" secondItem="D8G-Y2-r3k" secondAttribute="top" constant="28" id="oqa-Aw-bGB"/>
                                     <constraint firstAttribute="height" constant="200" id="rqg-gr-p7E"/>
+                                    <constraint firstItem="V5I-bU-WL8" firstAttribute="top" secondItem="izd-jX-Fbf" secondAttribute="bottom" constant="8" id="ss1-qz-Chs"/>
                                     <constraint firstItem="izd-jX-Fbf" firstAttribute="top" secondItem="0WK-Yd-9B8" secondAttribute="bottom" constant="27" id="tQ4-pr-59z"/>
                                     <constraint firstItem="oKa-fi-QYq" firstAttribute="leading" secondItem="D8G-Y2-r3k" secondAttribute="leading" constant="8" id="uKk-fU-0bE"/>
                                     <constraint firstAttribute="bottom" secondItem="oKa-fi-QYq" secondAttribute="bottom" constant="8" id="wNg-g3-JjX"/>
                                     <constraint firstAttribute="trailing" secondItem="izd-jX-Fbf" secondAttribute="trailing" constant="8" id="yGi-fy-Dol"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLH-OK-9fv">
+                                <rect key="frame" x="0.0" y="492" width="375" height="198"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkl-5x-IVJ">
+                                        <rect key="frame" x="8" y="84" width="94" height="30"/>
+                                        <color key="backgroundColor" red="0.3389858603" green="0.41004461050000002" blue="0.46691119669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Sign out">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FFt-6Z-9zh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiT-ds-UgH">
+                                        <rect key="frame" x="273" y="84" width="94" height="30"/>
+                                        <color key="backgroundColor" red="0.3389858603" green="0.41004461050000002" blue="0.46691119669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="94" id="wBM-m2-Xi6"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Disconnect">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapDisconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k3f-7g-mnL"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="dOf-Tc-VUs" customClass="GIDSignInButton">
+                                        <rect key="frame" x="108" y="74.5" width="160" height="49"/>
+                                        <color key="backgroundColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dOf-Tc-VUs" secondAttribute="height" multiplier="160:49" id="G50-Br-wF8"/>
+                                            <constraint firstAttribute="width" constant="160" id="Hzu-F1-4vn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.11269015070000001" green="0.14433886109999999" blue="0.1629322916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Hkl-5x-IVJ" secondAttribute="centerY" id="QJo-aT-Uds"/>
+                                    <constraint firstAttribute="centerY" secondItem="dOf-Tc-VUs" secondAttribute="centerY" id="V4o-Hj-AGe"/>
+                                    <constraint firstItem="Hkl-5x-IVJ" firstAttribute="leading" secondItem="nLH-OK-9fv" secondAttribute="leading" constant="8" id="VJo-Wf-Ed8"/>
+                                    <constraint firstAttribute="trailing" secondItem="uiT-ds-UgH" secondAttribute="trailing" constant="8" id="eqa-7D-qCa"/>
+                                    <constraint firstAttribute="centerX" secondItem="dOf-Tc-VUs" secondAttribute="centerX" id="fho-8a-3zB"/>
+                                    <constraint firstItem="Hkl-5x-IVJ" firstAttribute="width" secondItem="uiT-ds-UgH" secondAttribute="width" id="i88-BU-4pz"/>
+                                    <constraint firstItem="Hkl-5x-IVJ" firstAttribute="height" secondItem="uiT-ds-UgH" secondAttribute="height" id="mfp-LU-5xr"/>
+                                    <constraint firstAttribute="centerY" secondItem="uiT-ds-UgH" secondAttribute="centerY" id="o5u-QP-klL"/>
+                                    <constraint firstAttribute="height" constant="198" id="xCu-uz-Pmf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.16080117360000001" green="0.67844533920000005" blue="0.60227186020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wOr-hd-Nlq" secondAttribute="bottom" id="GdG-kB-5ee"/>
+                            <constraint firstItem="nLH-OK-9fv" firstAttribute="trailing" secondItem="wOr-hd-Nlq" secondAttribute="trailing" id="Lat-60-GqL"/>
+                            <constraint firstItem="nLH-OK-9fv" firstAttribute="top" secondItem="D8G-Y2-r3k" secondAttribute="bottom" constant="26" id="Qze-RJ-LpH"/>
                             <constraint firstItem="wOr-hd-Nlq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="R9H-Ev-LqG"/>
                             <constraint firstItem="wOr-hd-Nlq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eW7-6T-T54"/>
                             <constraint firstItem="D8G-Y2-r3k" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="hjn-eV-SQd"/>
+                            <constraint firstItem="nLH-OK-9fv" firstAttribute="leading" secondItem="wOr-hd-Nlq" secondAttribute="leading" id="n3x-Zf-ORY"/>
                             <constraint firstItem="D8G-Y2-r3k" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xKp-tC-Lbb"/>
                             <constraint firstAttribute="trailing" secondItem="wOr-hd-Nlq" secondAttribute="trailing" id="zwS-hl-HAl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="gVR-j6-Ipk"/>
+                    <connections>
+                        <outlet property="disconnectButton" destination="uiT-ds-UgH" id="5ch-Sa-UA0"/>
+                        <outlet property="signInButton" destination="dOf-Tc-VUs" id="LCh-gJ-FWh"/>
+                        <outlet property="signOutButton" destination="Hkl-5x-IVJ" id="f3K-eA-0Zi"/>
+                        <outlet property="touchID" destination="V5I-bU-WL8" id="0kQ-BK-u0L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="6fw-4Q-h2i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-362" y="56"/>
+            <point key="canvasLocation" x="-362.39999999999998" y="55.322338830584712"/>
         </scene>
         <!--Protein ListVC-->
         <scene sceneID="b7t-9C-6lf">
