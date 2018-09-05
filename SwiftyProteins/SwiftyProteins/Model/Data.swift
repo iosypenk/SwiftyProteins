@@ -28,9 +28,10 @@ class MyData {
         }
     }
     
-    func downloadProtein(name: String, completionHandler: @escaping (String?) -> Void) {
-        
-        guard let url = URL(string: "https://files.rcsb.org/ligands/0/\(name)/\(name)_ideal.pdb") else { return }
+    func downloadProtein(name: String, completionHandler: @escaping (String?) -> Void) {        
+        let index = name.index(name.startIndex, offsetBy: 1)
+        let dir = name[..<index] // directory
+        guard let url = URL(string: "https://files.rcsb.org/ligands/\(dir)/\(name)/\(name)_ideal.pdb") else { return }
 
         let task = URLSession.shared.downloadTask(with: url) { data, response, error in
             DispatchQueue.main.async {
