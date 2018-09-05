@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ProteinView-->
+        <scene sceneID="qxQ-5S-yFJ">
+            <objects>
+                <viewController storyboardIdentifier="ProteinVC" id="vgZ-86-bfc" userLabel="ProteinView" customClass="ProteinVC" customModule="SwiftyProteins" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PfG-GM-Wko">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rP-Ig-UcY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43410679699999999" green="0.72549402709999999" blue="0.65881627799999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="9rP-Ig-UcY" firstAttribute="top" secondItem="7XM-ow-CDH" secondAttribute="top" id="5gk-1A-2Jt"/>
+                            <constraint firstItem="7XM-ow-CDH" firstAttribute="trailing" secondItem="9rP-Ig-UcY" secondAttribute="trailing" id="AKI-L0-k35"/>
+                            <constraint firstItem="9rP-Ig-UcY" firstAttribute="leading" secondItem="7XM-ow-CDH" secondAttribute="leading" id="Jli-Lt-zge"/>
+                            <constraint firstItem="7XM-ow-CDH" firstAttribute="bottom" secondItem="9rP-Ig-UcY" secondAttribute="bottom" id="K6q-OX-r9x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7XM-ow-CDH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlQ-Sy-wTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1380" y="56"/>
+        </scene>
+    </scenes>
+</document>

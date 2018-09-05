@@ -1,0 +1,61 @@
+//
+//  Data.swift
+//  SwiftyProteins
+//
+//  Created by Ivan OSYPENKO on 9/3/18.
+//  Copyright © 2018 iosypenk & mrybak team. All rights reserved.
+//
+
+import UIKit
+
+class MyData {
+    
+    var proteinsArr = [String]()
+    var filteredArr = [String]()
+    
+    var pdbFile : String?
+    
+    func getProteinsArr() {
+        let fileName = Bundle.main.path(forResource: "ligands", ofType: "txt")
+        do {
+            let data = try NSString(contentsOfFile: fileName!, encoding: String.Encoding.utf8.rawValue) as String
+            let splitedData = data.split(separator: "\n")
+            for key in splitedData {
+                proteinsArr.append(String(key))
+            }
+        } catch let error as NSError {
+            print("Can not read ligands.txt : \(error)")
+        }
+    }
+    
+    func downloadProtein(name: String, completionHandler: @escaping (String?) -> Void) {
+        
+        guard let url = URL(string: "https://files.rcsb.org/ligands/0/\(name)/\(name)_ideal.pdb") else { return }
+
+        let task = URLSession.shared.downloadTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                if let data = data {
+                    if let pdbfile : String = try? String(contentsOf: data) {
+                        completionHandler(pdbfile)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func searchProtein(text: String) {
+        
+        if !filteredArr.isEmpty {
+            print(filteredArr)
+            filteredArr.removeAll()
+        }
+        
+        for key in self.proteinsArr {
+            if key.contains(text) {
+               filteredArr.append(key)
+            }
+        }
+    }
+
+}
