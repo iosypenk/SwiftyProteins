@@ -23,7 +23,7 @@ class ProteinListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         searchBar.delegate = self
         data.getProteinsArr()
     }
-   
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         searchBar.resignFirstResponder()
     }

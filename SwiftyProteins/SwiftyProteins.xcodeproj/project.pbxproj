@@ -17,6 +17,7 @@
 		6674ACB9213D173F00E7471C /* ProteinListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6674ACB8213D173F00E7471C /* ProteinListVC.swift */; };
 		6674ACBB213D184A00E7471C /* ProteinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6674ACBA213D184A00E7471C /* ProteinVC.swift */; };
 		66A01FDA213D6B84006C8D7A /* ligands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66A01FD9213D6B84006C8D7A /* ligands.txt */; };
+		66D7E96A2141508000453731 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D7E9692141508000453731 /* File.swift */; };
 		DA9CD914213FD8AB0005A1C0 /* AtomConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CD911213FD8AB0005A1C0 /* AtomConnections.swift */; };
 		DA9CD915213FD8AB0005A1C0 /* ProteinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CD912213FD8AB0005A1C0 /* ProteinScene.swift */; };
 		DA9CD916213FD8AB0005A1C0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CD913213FD8AB0005A1C0 /* Data.swift */; };
@@ -36,6 +37,7 @@
 		6674ACB8213D173F00E7471C /* ProteinListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinListVC.swift; sourceTree = "<group>"; };
 		6674ACBA213D184A00E7471C /* ProteinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinVC.swift; sourceTree = "<group>"; };
 		66A01FD9213D6B84006C8D7A /* ligands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ligands.txt; sourceTree = "<group>"; };
+		66D7E9692141508000453731 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = SwiftyProteins/VC/File.swift; sourceTree = SOURCE_ROOT; };
 		DA9CD911213FD8AB0005A1C0 /* AtomConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomConnections.swift; sourceTree = "<group>"; };
 		DA9CD912213FD8AB0005A1C0 /* ProteinScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProteinScene.swift; sourceTree = "<group>"; };
 		DA9CD913213FD8AB0005A1C0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				6674ACA8213D14F900E7471C /* LoginVC.swift */,
 				6674ACB8213D173F00E7471C /* ProteinListVC.swift */,
 				6674ACBA213D184A00E7471C /* ProteinVC.swift */,
+				66D7E9692141508000453731 /* File.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				6674ACB9213D173F00E7471C /* ProteinListVC.swift in Sources */,
 				DA9CD915213FD8AB0005A1C0 /* ProteinScene.swift in Sources */,
 				6674ACA9213D14F900E7471C /* LoginVC.swift in Sources */,
+				66D7E96A2141508000453731 /* File.swift in Sources */,
 				DA9CD914213FD8AB0005A1C0 /* AtomConnections.swift in Sources */,
 				6674ACA7213D14F900E7471C /* AppDelegate.swift in Sources */,
 			);

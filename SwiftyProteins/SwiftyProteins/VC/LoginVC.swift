@@ -85,6 +85,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
             signInButton.isHidden = true
             signOutButton.isHidden = false
             disconnectButton.isHidden = false
+            self.performSegue(withIdentifier: "showList", sender: self)
         } else {
             signInButton.isHidden = false
             signOutButton.isHidden = true
@@ -113,13 +114,23 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     @IBAction func didTapDisconnect(_ sender: UIButton) {
         GIDSignIn.sharedInstance().disconnect()
         print("try Disconnect")
+        
+        if GIDSignIn.sharedInstance().hasAuthInKeychain() {
+            print("has keychain")
+            
+            
+        } else {
+            print("removed")
+        }
     }
+    
     
     @IBAction func didTapSignOut(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()
          print("try Sign out")
         toggleAuthUI()
     }
+    
     
     
 }
