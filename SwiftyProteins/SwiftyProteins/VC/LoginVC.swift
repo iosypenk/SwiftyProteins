@@ -12,7 +12,6 @@ import GoogleSignIn
 
 class LoginVC: UIViewController, GIDSignInUIDelegate {
     
-    @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var touchID: UIButton!
     
     @IBOutlet weak var signInButton: GIDSignInButton!
@@ -25,21 +24,32 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // [START_EXCLUDE]
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(LoginVC.receiveToggleAuthUINotification(_:)),
                                                name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
                                                object: nil)
-        
         toggleAuthUI()
     }
+    
+    
+    //TODO MARK: -Check when touch id appears after return from listVC
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // Hide the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        // [START touchID]
+         let context: LAContext = LAContext()
+         var error: NSError?
+        
+        // check if Touch ID is available
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            touchID.isHidden = false
+        } else {
+            touchID.isHidden = true
+        }
+        // [END touchID]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,6 +64,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         present(alertController, animated: true, completion: nil)
     }
     
+    //MARK: -Biometrics ID
+    
     @IBAction func idAuth(_ sender: Any) {
         
         let context: LAContext = LAContext()
@@ -62,21 +74,28 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         // check if Touch ID is available
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
 
+            touchID.isHidden = false
             let reason = "Authenticate with Touch ID"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, reply: { (succes, error) in
-                if succes {
-                    print("OK")
-                } else {
-                    if let error = error {
-                        print(error)
+                DispatchQueue.main.async {
+                    if succes {
+                        print("OK")
+                        self.performSegue(withIdentifier: "showList", sender: self)
+                    } else {
+                        if let error = error {
+                            print(error)
+                        }
                     }
                 }
             })
         }
         else {
-            showAlertController("Touch ID not available")
+            showAlertController("Biometric ID is not available")
         }
     }
+    
+    
+    //MARK: -Google ID
     
     // [START toggle_auth]
     func toggleAuthUI() {
@@ -85,15 +104,16 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
             signInButton.isHidden = true
             signOutButton.isHidden = false
             disconnectButton.isHidden = false
+            touchID.isHidden = true
             self.performSegue(withIdentifier: "showList", sender: self)
         } else {
             signInButton.isHidden = false
             signOutButton.isHidden = true
             disconnectButton.isHidden = true
+            touchID.isHidden = false
         }
     }
     // [END toggle_auth]
-
     
     deinit {
         NotificationCenter.default.removeObserver(self,
@@ -111,19 +131,16 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         }
     }
     
+    //MARK: -Button Actions
+    
     @IBAction func didTapDisconnect(_ sender: UIButton) {
         GIDSignIn.sharedInstance().disconnect()
-        print("try Disconnect")
-        
-        if GIDSignIn.sharedInstance().hasAuthInKeychain() {
+                if GIDSignIn.sharedInstance().hasAuthInKeychain() {
             print("has keychain")
-            
-            
         } else {
             print("removed")
         }
     }
-    
     
     @IBAction func didTapSignOut(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()

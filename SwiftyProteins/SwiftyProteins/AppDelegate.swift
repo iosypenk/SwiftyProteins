@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "1010996599859-mg1pfsga06f1oofr8l5g7u8vn51mjous.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
-        
         return true
     }
     
@@ -89,6 +88,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         print("DidEnterBackground")
         GIDSignIn.sharedInstance().signOut()
         GIDSignIn.sharedInstance().disconnect()
+        
+        
+        let vc = UIApplication.shared.keyWindow?.rootViewController
+        
+        
+        if let nav = vc as? UINavigationController {
+            let str: String = String(describing: nav.visibleViewController)
+            print("сработало    " + str)
+            
+            if str.contains("Optional(<SwiftyProteins.ProteinListVC:") {
+                print("ALARM!!")
+                nav.popViewController(animated: true)
+            }
+            
+            if str.contains("Optional(<SwiftyProteins.ProteinVC:") {
+                print("2 POP!!")
+                let first = nav.viewControllers[0]
+                nav.popToViewController(first, animated: true)
+            }
+        }
+        
      
 //        nav.present(nav.viewControllers[0] , animated: true, completion: nil)
         
@@ -106,19 +126,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         
-        let vc = UIApplication.shared.keyWindow?.rootViewController
-        
-        
-        if let nav = vc as? UINavigationController {
-            let str: String = String(describing: nav.visibleViewController)
-            print("сработало    " + str)
-            
-        }
-        
-        if let presented = vc?.presentedViewController {
-            let str: String = String(describing: presented)
-            print(str)
-        }
+//        let vc = UIApplication.shared.keyWindow?.rootViewController
+//
+//
+//        if let nav = vc as? UINavigationController {
+//            let str: String = String(describing: nav.visibleViewController)
+//            print("сработало    " + str)
+//
+//            if str.contains("Optional(<SwiftyProteins.ProteinListVC:") {
+//                print("ALARM!!")
+//                nav.popViewController(animated: true)
+//            }
+//
+//            if str.contains("Optional(<SwiftyProteins.ProteinVC:") {
+//                print("2 POP!!")
+//                let first = nav.viewControllers[0]
+//                nav.popToViewController(first, animated: true)
+//            }
+//        }
+//
+//        if let presented = vc?.presentedViewController {
+//            let str: String = String(describing: presented)
+//            print(str)
+//        }
+    
     }
   
     

@@ -15,7 +15,7 @@
         <!--Main Navigation Controller-->
         <scene sceneID="STp-65-yTM">
             <objects>
-                <navigationController id="IlF-Te-kCh" customClass="MainNavigationController" customModule="SwiftyProteins" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="MainNavigationController" storyboardIdentifier="MainNavigationController" id="IlF-Te-kCh" customClass="MainNavigationController" customModule="SwiftyProteins" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f9m-FM-8XF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -127,6 +127,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5Da-Qh-IK0">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                                <color key="color" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <searchBar contentMode="redraw" placeholder="Enter protein name" translatesAutoresizingMaskIntoConstraints="NO" id="QJz-hx-Xne">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
@@ -145,21 +149,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V6m-Pj-srv">
+                                <rect key="frame" x="0.0" y="639" width="375" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentHandler:" destination="jrN-iV-1dz" eventType="valueChanged" id="ork-ZG-iPQ"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="5Da-Qh-IK0" firstAttribute="centerY" secondItem="meu-5V-eYS" secondAttribute="centerY" id="8az-LZ-eCX"/>
+                            <constraint firstItem="meu-5V-eYS" firstAttribute="bottom" secondItem="V6m-Pj-srv" secondAttribute="bottom" id="AjR-G2-gZz"/>
                             <constraint firstItem="QJz-hx-Xne" firstAttribute="top" secondItem="meu-5V-eYS" secondAttribute="top" id="PGs-HJ-Kz9"/>
                             <constraint firstItem="5Xh-1I-GSB" firstAttribute="trailing" secondItem="meu-5V-eYS" secondAttribute="trailing" id="Re2-39-Hym"/>
                             <constraint firstItem="QJz-hx-Xne" firstAttribute="trailing" secondItem="meu-5V-eYS" secondAttribute="trailing" id="eP4-f2-0cX"/>
                             <constraint firstItem="5Xh-1I-GSB" firstAttribute="bottom" secondItem="meu-5V-eYS" secondAttribute="bottom" id="efX-c7-8Lv"/>
                             <constraint firstItem="5Xh-1I-GSB" firstAttribute="top" secondItem="meu-5V-eYS" secondAttribute="top" constant="44" id="ewz-8g-1OB"/>
+                            <constraint firstItem="5Da-Qh-IK0" firstAttribute="centerX" secondItem="meu-5V-eYS" secondAttribute="centerX" id="gIv-Rj-2IN"/>
                             <constraint firstItem="QJz-hx-Xne" firstAttribute="leading" secondItem="meu-5V-eYS" secondAttribute="leading" id="gTC-tj-amb"/>
                             <constraint firstItem="5Xh-1I-GSB" firstAttribute="leading" secondItem="meu-5V-eYS" secondAttribute="leading" id="gW3-ip-XAp"/>
                             <constraint firstItem="5Xh-1I-GSB" firstAttribute="top" secondItem="QJz-hx-Xne" secondAttribute="bottom" id="ulg-Zv-ury"/>
+                            <constraint firstItem="meu-5V-eYS" firstAttribute="trailing" secondItem="V6m-Pj-srv" secondAttribute="trailing" id="vCj-tt-7l5"/>
+                            <constraint firstItem="V6m-Pj-srv" firstAttribute="leading" secondItem="meu-5V-eYS" secondAttribute="leading" id="wA0-pq-fuw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="meu-5V-eYS"/>
                     </view>
                     <navigationItem key="navigationItem" id="mvI-X1-Vtm"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="5Da-Qh-IK0" id="Aku-o6-yIB"/>
                         <outlet property="proteinsList" destination="5Xh-1I-GSB" id="0mr-he-IVK"/>
                         <outlet property="searchBar" destination="QJz-hx-Xne" id="b7P-Ve-Zba"/>
                         <segue destination="la6-Nt-XWs" kind="show" identifier="show" id="t4w-GX-Dg5"/>
