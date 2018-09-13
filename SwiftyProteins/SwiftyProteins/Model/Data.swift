@@ -47,13 +47,31 @@ class MyData {
     
     func searchProtein(text: String) {
         
+        let lowText = text.lowercased()
+        
         if !filteredArr.isEmpty {
             filteredArr.removeAll()
         }
         
         for key in self.proteinsArr {
-            if key.contains(text) {
-               filteredArr.append(key)
+            let lowKey = key.lowercased()
+            if lowKey.hasPrefix(lowText) {
+                filteredArr.append(key)
+            }
+        }
+        
+        for key in self.proteinsArr {
+            var alreadyexists = false
+            let lowKey = key.lowercased()
+            if lowKey.hasSuffix(lowText) {
+                for str in filteredArr {
+                    if str == key {
+                        alreadyexists = true
+                    }
+                }
+                if !alreadyexists {
+                    filteredArr.append(key)
+                }
             }
         }
     }

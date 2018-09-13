@@ -13,6 +13,7 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
+    var name: String?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       
@@ -49,20 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             // [END_EXCLUDE]
         } else {
             // Perform any operations on signed in user here.
-            //            let userId = user.userID                  // For client-side use only!
-            //            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            //            let givenName = user.profile.givenName
-            //            let familyName = user.profile.familyName
-            //            let email = user.profile.email
+            //            let fullName = user.profile.name
+            self.name = user.profile.givenName
             
             // [START_EXCLUDE]
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"),
                 object: nil,
-                userInfo: ["statusText": "Signed in user:\n\(fullName ?? "fullname")"])
+                userInfo: ["statusText": "Signed in user:\n\(name ?? "name")"])
             // [END_EXCLUDE]
-            print(fullName ?? "fullName")
         }
     }
     // [END signin_handler]
@@ -83,75 +79,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
 
-//        guard let nav = window?.rootViewController as? MainNavigationController else { return }
-
-        print("DidEnterBackground")
         GIDSignIn.sharedInstance().signOut()
         GIDSignIn.sharedInstance().disconnect()
         
-        
         let vc = UIApplication.shared.keyWindow?.rootViewController
-        
         
         if let nav = vc as? UINavigationController {
             let str: String = String(describing: nav.visibleViewController)
-            print("сработало    " + str)
             
             if str.contains("Optional(<SwiftyProteins.ProteinListVC:") {
-                print("ALARM!!")
                 nav.popViewController(animated: true)
             }
             
             if str.contains("Optional(<SwiftyProteins.ProteinVC:") {
-                print("2 POP!!")
                 let first = nav.viewControllers[0]
                 nav.popToViewController(first, animated: true)
             }
         }
-        
-     
-//        nav.present(nav.viewControllers[0] , animated: true, completion: nil)
-        
-//          let vc = UIApplication.shared.keyWindow?.rootViewController
-        
-          /*if let _ = vc as? UINavigationController {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destinationViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-//            let navigationController = vc
-//            navigationController?.showDetailViewController(destinationViewController, sender: Any?.self)
-            vc?.present(destinationViewController, animated: true, completion: nil)
-        }*/
-        
     }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        
-//        let vc = UIApplication.shared.keyWindow?.rootViewController
-//
-//
-//        if let nav = vc as? UINavigationController {
-//            let str: String = String(describing: nav.visibleViewController)
-//            print("сработало    " + str)
-//
-//            if str.contains("Optional(<SwiftyProteins.ProteinListVC:") {
-//                print("ALARM!!")
-//                nav.popViewController(animated: true)
-//            }
-//
-//            if str.contains("Optional(<SwiftyProteins.ProteinVC:") {
-//                print("2 POP!!")
-//                let first = nav.viewControllers[0]
-//                nav.popToViewController(first, animated: true)
-//            }
-//        }
-//
-//        if let presented = vc?.presentedViewController {
-//            let str: String = String(describing: presented)
-//            print(str)
-//        }
-    
-    }
-  
     
 }
 

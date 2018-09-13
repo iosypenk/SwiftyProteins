@@ -12,6 +12,6 @@ import GoogleSignIn
 class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationBar.barTintColor = UIColor(red: 59/255, green: 73/255, blue: 91/255, alpha: 1)
     }
 }

@@ -6,9 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-CondensedMedium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -18,16 +24,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1155" translatesAutoresizingMaskIntoConstraints="NO" id="MTZ-XI-rJ6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SP_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Z5e-7U-BmP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unit_logo" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-Tu-ia1">
+                                <rect key="frame" x="117" y="594" width="140" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="ADg-Oo-ZKu"/>
+                                    <constraint firstAttribute="width" constant="140" id="gSM-gc-RiC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swifty Proteins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcj-NR-ad4">
+                                <rect key="frame" x="42" y="168" width="291" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="4Jb-l7-i64"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="62"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MTZ-XI-rJ6" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="eSo-jY-bOr"/>
-                            <constraint firstItem="MTZ-XI-rJ6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="veB-ib-AKV"/>
-                            <constraint firstAttribute="trailing" secondItem="MTZ-XI-rJ6" secondAttribute="trailing" id="wyZ-TU-Qlt"/>
-                            <constraint firstAttribute="bottom" secondItem="MTZ-XI-rJ6" secondAttribute="bottom" id="zeZ-8R-Hd7"/>
+                            <constraint firstItem="gcj-NR-ad4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Chf-h7-rl2"/>
+                            <constraint firstItem="Z5e-7U-BmP" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MHa-gD-LvE"/>
+                            <constraint firstAttribute="bottom" secondItem="Z5e-7U-BmP" secondAttribute="bottom" id="W15-AB-frb"/>
+                            <constraint firstItem="qI4-Tu-ia1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cUP-wX-iRq"/>
+                            <constraint firstItem="Z5e-7U-BmP" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="iLP-ZN-tzD"/>
+                            <constraint firstItem="gcj-NR-ad4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="3:5" id="kx8-8Q-QCv"/>
+                            <constraint firstAttribute="trailing" secondItem="Z5e-7U-BmP" secondAttribute="trailing" id="moO-PH-4T0"/>
+                            <constraint firstItem="qI4-Tu-ia1" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="18:10" id="yKH-kU-qsL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +63,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1155" width="150" height="150"/>
+        <image name="SP_logo" width="512" height="512"/>
+        <image name="unit_logo" width="573" height="212"/>
     </resources>
 </document>
