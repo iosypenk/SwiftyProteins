@@ -1,14 +1,8 @@
 # SwiftyProteins
 SwiftyProteins is a visualizer for proteins models according to standardized representation from the famous PDB (Protein Data Bank) using SceneKit.
 
-<div style="display: flex; justify-content: space-around;">
 
-
-  <br/>
-  <img src="https://github.com/iosypenk/SwiftyCompanion/blob/master/screenshoots/iosypenk_gif_1.gif" width="49%" />
-  <img src="https://github.com/iosypenk/SwiftyCompanion/blob/master/screenshoots/iosypenk_gif_2.gif" width="49%" />
-  <br/>
-  Program or app display and visualize next information:
+ Program or app display and visualize next information:
   ```
   + How many devices connected to the wi-fi network;
   + Floor map with designated location searching by the WiFi MAC address;
@@ -21,6 +15,15 @@ SwiftyProteins is a visualizer for proteins models according to standardized rep
   + Other features
   ```
 
+
+<div style="display: flex; justify-content: space-around;">
+
+
+  <br/>
+  <img src="https://github.com/iosypenk/SwiftyCompanion/blob/master/screenshoots/iosypenk_gif_1.gif" width="49%" />
+  <img src="https://github.com/iosypenk/SwiftyCompanion/blob/master/screenshoots/iosypenk_gif_2.gif" width="49%" />
+  <br/>
+ 
 
   <br/>
 
