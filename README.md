@@ -25,18 +25,18 @@
 #### Protein View displays Protein model in 3D. Additional information about choosen atom is available. It is possible to share current screen view. 
 
 <div align="center">
-  <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/106.png" width="27%" />
-  <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/107.png" width="28%" /> 
-  <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/108.png" width="28%" /> 
+  <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/106.png" width="29%" />
+  <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/107.png" width="30%" /> 
+  <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/108.png" width="30%" /> 
 </div>
 
 
 
-#### Landscape
-<div align="center">
- <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/201.png" width="50%" />
- <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/202.png" width="50%" />
- <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/203.png" width="50%" />
+#### Landscape orientation
+<div align="justify">
+ <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/201.png" width="80%" />
+ <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/202.png" width="80%" />
+ <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/203.png" width="80%" />
 </div>
 
 
