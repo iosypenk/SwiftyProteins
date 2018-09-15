@@ -39,4 +39,7 @@
  <img src="https://github.com/iosypenk/SwiftyProteins/blob/master/Screenshots/203.png" width="80%" />
 </div>
 
+## Author
+
+Ivan Osypenko, e1osyp@gmail.com
 
